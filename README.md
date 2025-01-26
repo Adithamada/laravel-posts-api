@@ -59,6 +59,14 @@ php artisan db:seed
     "message": "Sukses mengambil data post"
 }
 ```
+- Response 500 :
+```json
+{
+    "code": "500",
+    "data": null,
+    "message": "Gagal mengamnil data post"
+}
+```
 2. Store Data Post
 - Endpoint: `/api/posts`
 - Method: `POST`
@@ -86,5 +94,106 @@ php artisan db:seed
         "id": 502
     },
     "message": "Sukses menambah data!"
+}
+```
+- Response 500 :
+```json
+{
+    "code": "500",
+    "data": null,
+    "message": "Gagal menambah data"
+}
+```
+3. Show Data Post
+- Endpoint: `/api/posts/1`
+- Method: `POST`
+- Deskripsi: Mengambil data post by id.
+- Response 200 :
+```json
+{
+    "code": "200",
+    "data": {
+        "id": 1,
+        "title": "Quia alias et voluptatem.",
+        "description": "Cumque assumenda et hic. Consequatur similique accusantium quae eos dolore modi voluptate. Voluptatem et voluptatem in ut cumque adipisci enim. Officiis nam autem sunt est consequatur et cupiditate quae.",
+        "category_id": 1,
+        "author": "Barry Nienow",
+        "created_at": "2025-01-26T11:14:25.000000Z",
+        "updated_at": "2025-01-26T11:14:25.000000Z"
+    },
+    "message": "Sukses mengambil data!"
+}
+```
+- Reponse 500 :
+```json
+{
+    "code": "500",
+    "data": null,
+    "message": "Gagal mengambil data"
+}
+```
+4. Update Data Post
+- Endpoint: `/api/posts/1/update`
+- Method: `PUT`
+- Deskripsi: Meng-update data post.
+- Request :
+```json
+{
+    "title":"et voluptatem Quia alias Baron Van Houvel.",
+    "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
+    "category_id": 3,
+    "author": "Joe Baron Micky"
+}
+```
+- Response 200 :
+```json
+{
+    "code": "200",
+    "data": {
+        "title": "et voluptatem Quia alias Baron Van Houvel.",
+        "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
+        "category_id": 3,
+        "author": "Joe Baron Micky",
+        "updated_at": "2025-01-26T12:19:58.000000Z",
+        "created_at": "2025-01-26T12:19:58.000000Z",
+        "id": 1
+    },
+    "message": "Sukses update data!"
+}
+```
+- Response 500 :
+```json
+{
+    "code": "500",
+    "data": null,
+    "message": "Gagal update data"
+}
+```
+5. Delete Data Post
+- Endpoint: `/api/posts/1`
+- Method: `POST`
+- Deskripsi: Menghapus data post by id.
+- Response 200 :
+```json
+{
+    "code": "200",
+    "data": {
+        "id": 502,
+        "title": "et voluptatem Quia alias Baron Van Houvel.",
+        "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
+        "category_id": 3,
+        "author": "Joe Baron Micky",
+        "created_at": "2025-01-26T12:19:58.000000Z",
+        "updated_at": "2025-01-26T12:19:58.000000Z"
+    },
+    "message": "Sukses menghapus data!"
+}
+```
+- Reponse 500 :
+```json
+{
+    "code": "500",
+    "data": null,
+    "message": "Gagal menghapus data"
 }
 ```
