@@ -194,7 +194,7 @@ http://localhost:8000/api/v1/category/
 #### Body :
 ```json
 {
-	"Category_name":"Donation"
+	"category_name":"Donation"
 }
 ```
 ## ✍ PUT Method Example
@@ -239,4 +239,4 @@ http://localhost:8000/api/v1/post/{id}
 http://localhost:8000/api/v1/category/{id}
 ```
 ## 🖥 Entity Relational Diagram ( ERD )
-![API ERD](http://localhost:8000/api.drawio.png)
+![API ERD](https://github.com/user-attachments/assets/d4f23200-b8b1-49f4-8676-ffcac1611de5)
