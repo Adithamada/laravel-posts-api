@@ -239,4 +239,4 @@ http://localhost:8000/api/v1/post/{id}
 http://localhost:8000/api/v1/category/{id}
 ```
 ## 🖥 Entity Relational Diagram ( ERD )
-![ERD](api.jpg)
+![API ERD](http://localhost:8000/api.drawio)
