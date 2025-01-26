@@ -45,7 +45,7 @@ class CategoryController extends Controller
                 ]
             );
 
-            $category = Category::create($request->only(['category']));
+            $category = Category::create($request->only(['category_name']));
 
             return response()->json([
                 "code" => "200",
@@ -105,7 +105,7 @@ class CategoryController extends Controller
                 ]
             );
 
-            $category->update($request->only(['category']));
+            $category->update($request->only(['category_name']));
 
             return response()->json([
                 "code" => "200",
