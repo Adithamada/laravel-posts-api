@@ -3,32 +3,32 @@
 API ini memungkinkan pengguna untuk membuat, memperbarui, menampilkan, dan menghapus postingan di sistem.
 ## Instalasi
 ### Langkah - langkah :
-1. Clone Repository :
+**1. Clone Repository** :
 ```bash
 git clone https://github.com/Adithamada/laravel-posts-api
 ```
-2. Instal Depedensi
+**2. Instal Depedensi** :
 ```bash
 composer install
 ```
-3. Salin file .env.example ke .env dan atur konfigurasi database:
+**3. Salin file .env.example ke .env dan atur konfigurasi database** :
 ```bash
 cp .env.example .end
 ```
-4. Generate App Key :
+**4. Generate App Key** :
 ```bash
 php artisan key:generate
 ```
-5. Migrasi Database :
+**5. Migrasi Database** :
 ```bash
 php artisan migrate
 ```
-6. Database Seeder :
+**6. Database Seeder** :
 ```bash
 php artisan db:seed
 ```
 ## API Endpoints
-1. Get All Post
+**1. Get All Post** :
 - Endpoint: `/api/posts`
 - Method: `GET`
 - Deskripsi: Mengambil semua data post.
@@ -67,7 +67,7 @@ php artisan db:seed
     "message": "Gagal mengamnil data post"
 }
 ```
-2. Store Data Post
+**2. Store Data Post** :
 - Endpoint: `/api/posts`
 - Method: `POST`
 - Deskripsi: Menambah data post baru.
@@ -104,7 +104,7 @@ php artisan db:seed
     "message": "Gagal menambah data"
 }
 ```
-3. Show Data Post
+**3. Show Data Post** :
 - Endpoint: `/api/posts/1`
 - Method: `POST`
 - Deskripsi: Mengambil data post by id.
@@ -132,7 +132,7 @@ php artisan db:seed
     "message": "Gagal mengambil data"
 }
 ```
-4. Update Data Post
+**4. Update Data Post** :
 - Endpoint: `/api/posts/1/update`
 - Method: `PUT`
 - Deskripsi: Meng-update data post.
@@ -169,7 +169,7 @@ php artisan db:seed
     "message": "Gagal update data"
 }
 ```
-5. Delete Data Post
+**5. Delete Data Post** :
 - Endpoint: `/api/posts/1`
 - Method: `POST`
 - Deskripsi: Menghapus data post by id.
@@ -189,7 +189,7 @@ php artisan db:seed
     "message": "Sukses menghapus data!"
 }
 ```
-- Reponse 500 :
+- Response 500 :
 ```json
 {
     "code": "500",
