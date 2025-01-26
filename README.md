@@ -181,9 +181,9 @@ http://localhost:8000/api/v1/post/
 ```json
 {
 "title":"et voluptatem Quia alias Baron Van Houvel.",
-    "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
-    "category_id": 3,
-    "author": "Joe Baron Micky"
+"description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
+"category_id": 3,
+"author": "Joe Baron Micky"
 }
 ```
 ### Category Example
@@ -194,7 +194,7 @@ http://localhost:8000/api/v1/category/
 #### Body :
 ```json
 {
-	"category_name":"Donation"
+"category_name":"Donation"
 }
 ```
 ## ✍ PUT Method Example
@@ -208,9 +208,9 @@ http://localhost:8000/api/v1/posts/{id}/update
 ```json
 {
 "title":"et voluptatem Quia alias Baron Van Houvel.",
-    "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
-    "category_id": 3,
-    "author": "Joe Baron Micky"
+"description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
+"category_id": 3,
+"author": "Joe Baron Micky"
 }
 ```
 ### Category Example
@@ -221,7 +221,7 @@ http://localhost:8000/api/v1/category/{id}/update
 #### Body :
 ```json
 {
-	"category_name":"Donation"
+"category_name":"Donation"
 }
 ```
 ## ❌ DELETE Method Example
