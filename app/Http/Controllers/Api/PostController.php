@@ -36,12 +36,20 @@ class PostController extends Controller
     public function store(Request $request)
     {
         try {
-            $request->validate([
-                "title" => "required",
-                "description" => "required",
-                "category_id" => "required",
-                "author" => "required",
-            ]);
+            $request->validate(
+                [
+                    "title" => "required",
+                    "description" => "required",
+                    "category_id" => "required",
+                    "author" => "required",
+                ],
+                [
+                    "title.required" => "Field title tidak boleh kosong!",
+                    "description.required" => "Field description tidak boleh kosong!",
+                    "category_id.required" => "Field category_id tidak boleh kosong!",
+                    "author.required" => "Field author tidak boleh kosong!",
+                ]
+            );
 
             $post = Post::create($request->only(['title', 'description', 'category_id', 'author']));
 
@@ -54,8 +62,8 @@ class PostController extends Controller
             return response()->json([
                 "code" => "500",
                 "data" => null,
-                "message" => "Gagal menambah data"
-            ]) . $e->getMessage();
+                "message" => "Gagal menambah data: " . $e->getMessage()
+            ]);
         }
     }
 
@@ -99,6 +107,12 @@ class PostController extends Controller
                 "description" => "required",
                 "category_id" => "required",
                 "author" => "required",
+            ],
+            [
+                "title.required" => "Field title tidak boleh kosong!",
+                "description.required" => "Field description tidak boleh kosong!",
+                "category_id.required" => "Field category_id tidak boleh kosong!",
+                "author.required" => "Field author tidak boleh kosong!",
             ]);
 
             $post->update($request->only(['title', 'description', 'category_id', 'author']));
