@@ -180,7 +180,7 @@ http://localhost:8000/api/v1/post/
 #### Body :
 ```json
 {
-	"title":"et voluptatem Quia alias Baron Van Houvel.",
+"title":"et voluptatem Quia alias Baron Van Houvel.",
     "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
     "category_id": 3,
     "author": "Joe Baron Micky"
@@ -207,7 +207,7 @@ http://localhost:8000/api/v1/posts/{id}/update
 #### Body :
 ```json
 {
-	"title":"et voluptatem Quia alias Baron Van Houvel.",
+"title":"et voluptatem Quia alias Baron Van Houvel.",
     "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
     "category_id": 3,
     "author": "Joe Baron Micky"
