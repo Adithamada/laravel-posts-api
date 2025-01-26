@@ -1,38 +1,33 @@
-# Laravel Posts API
-## Pengantar Project
-API ini memungkinkan pengguna untuk membuat, memperbarui, menampilkan, dan menghapus postingan di sistem.
-## Instalasi
-### Langkah - langkah :
-**1. Clone Repository** :
-```bash
-git clone https://github.com/Adithamada/laravel-posts-api
+# API Documentation
+
+## 💁‍♀️ Allowed HTTP Request
+- GET : To GET data from the API
+- POST : To send POST request to the API ( Create data )
+- PUT : To send PUT request to the API ( Update data )
+- DELETE : To delete data on the API
+
+## 📝 Description Of Usual Server Responses
+- 200 OK - Request was successful
+- 500 Not Found - Requested data was not found
+
+## 📀 Posts Attributes
+- id INT : Unique identifier ( Primary Key )
+- title varchar : Post Name
+- description varchar : Post Description
+- category_id INT : Post Category ( Foreign Key )
+
+## 💿 Category Attributes
+- id INT : Unique identifier ( Primary Key )
+- category varchar : Category Name
+
+## 🔖 GET Method Example
+### Getting all data
+
+#### Posts URL :
 ```
-**2. Instal Depedensi** :
-```bash
-composer install
+http://localhost:8000/api/v1/posts
 ```
-**3. Salin file .env.example ke .env dan atur konfigurasi database** :
-```bash
-cp .env.example .end
-```
-**4. Generate App Key** :
-```bash
-php artisan key:generate
-```
-**5. Migrasi Database** :
-```bash
-php artisan migrate
-```
-**6. Database Seeder** :
-```bash
-php artisan db:seed
-```
-## API Endpoints
-**1. Get All Post** :
-- Endpoint: `/api/posts`
-- Method: `GET`
-- Deskripsi: Mengambil semua data post.
-- Response 200 :
+#### Result Examples :
 ```json
 {
     "code": "200",
@@ -58,57 +53,81 @@ php artisan db:seed
     ],
     "message": "Sukses mengambil data post"
 }
+
 ```
-- Response 500 :
+#### Category URL :
+```
+http://localhost:8000/api/v1/category
+```
+
+#### Result Examples :
 ```json
 {
-    "code": "500",
-    "data": null,
-    "message": "Gagal mengamnil data post"
-}
-```
-**2. Store Data Post** :
-- Endpoint: `/api/posts`
-- Method: `POST`
-- Deskripsi: Menambah data post baru.
-- Request :
-```json
+
+"code":  "200",
+
+"data":  [
+
 {
-    "title":"et voluptatem Quia alias Baron Van Houvel.",
-    "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
-    "category_id": 3,
-    "author": "Joe Baron Micky"
-}
-```
-- Response 200 :
-```json
+
+"id":  1,
+
+"category_name":  "Technology",
+
+"created_at":  null,
+
+"updated_at":  null
+
+},
+
 {
-    "code": "200",
-    "data": {
-        "title": "et voluptatem Quia alias Baron Van Houvel.",
-        "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
-        "category_id": 3,
-        "author": "Joe Baron Micky",
-        "updated_at": "2025-01-26T12:19:58.000000Z",
-        "created_at": "2025-01-26T12:19:58.000000Z",
-        "id": 502
-    },
-    "message": "Sukses menambah data!"
-}
-```
-- Response 500 :
-```json
+
+"id":  2,
+
+"category_name":  "Health",
+
+"created_at":  null,
+
+"updated_at":  null
+
+},
+
 {
-    "code": "500",
-    "data": null,
-    "message": "Gagal menambah data"
+
+"id":  3,
+
+"category_name":  "Sports",
+
+"created_at":  null,
+
+"updated_at":  null
+
+},
+
+{
+
+"id":  4,
+
+"category_name":  "Entertainment",
+
+"created_at":  null,
+
+"updated_at":  null
+
+}
+
+],
+
+"message":  "Sukses mengambil data category"
+
 }
 ```
-**3. Show Data Post** :
-- Endpoint: `/api/posts/1`
-- Method: `POST`
-- Deskripsi: Mengambil data post by id.
-- Response 200 :
+### Getting a specific posts data based on ID
+#### Posts Url :
+```
+http://127.0.0.1:8000/api/v1/post/{id}
+```
+#### Result Example :
 ```json
 {
     "code": "200",
@@ -124,76 +143,100 @@ php artisan db:seed
     "message": "Sukses mengambil data!"
 }
 ```
-- Reponse 500 :
+
+#### Category Url
+```
+http://127.0.0.1:8000/api/v1/category/{id}
+```
+#### Result Example :
 ```json
 {
-    "code": "500",
-    "data": null,
-    "message": "Gagal mengambil data"
+
+"code":  "200",
+
+"data":  {
+
+"id":  3,
+
+"category_name":  "Sports",
+
+"created_at":  null,
+
+"updated_at":  null
+
+},
+
+"message":  "Sukses mengambil data category!"
+
 }
 ```
-**4. Update Data Post** :
-- Endpoint: `/api/posts/1/update`
-- Method: `PUT`
-- Deskripsi: Meng-update data post.
-- Request :
+## 🧾 POST Method Example
+
+### Posts Example
+#### URL :
+```
+http://localhost:8000/api/v1/post/
+```
+#### Body :
 ```json
 {
-    "title":"et voluptatem Quia alias Baron Van Houvel.",
+	"title":"et voluptatem Quia alias Baron Van Houvel.",
     "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
     "category_id": 3,
     "author": "Joe Baron Micky"
 }
 ```
-- Response 200 :
+### Category Example
+#### URL :
+```
+http://localhost:8000/api/v1/category/
+```
+#### Body :
 ```json
 {
-    "code": "200",
-    "data": {
-        "title": "et voluptatem Quia alias Baron Van Houvel.",
-        "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
-        "category_id": 3,
-        "author": "Joe Baron Micky",
-        "updated_at": "2025-01-26T12:19:58.000000Z",
-        "created_at": "2025-01-26T12:19:58.000000Z",
-        "id": 1
-    },
-    "message": "Sukses update data!"
+	"Category_name":"Donation"
 }
 ```
-- Response 500 :
+## ✍ PUT Method Example
+
+### Posts Example
+#### URL :
+```
+http://localhost:8000/api/v1/posts/{id}/update
+```
+#### Body :
 ```json
 {
-    "code": "500",
-    "data": null,
-    "message": "Gagal update data"
+	"title":"et voluptatem Quia alias Baron Van Houvel.",
+    "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
+    "category_id": 3,
+    "author": "Joe Baron Micky"
 }
 ```
-**5. Delete Data Post** :
-- Endpoint: `/api/posts/1`
-- Method: `POST`
-- Deskripsi: Menghapus data post by id.
-- Response 200 :
+### Category Example
+#### URL :
+```
+http://localhost:8000/api/v1/category/{id}/update
+```
+#### Body :
 ```json
 {
-    "code": "200",
-    "data": {
-        "id": 502,
-        "title": "et voluptatem Quia alias Baron Van Houvel.",
-        "description": "Cumque assumenda et hic. Officiis nam autem sunt est consequatur et cupiditate quae. lorem dolor topan",
-        "category_id": 3,
-        "author": "Joe Baron Micky",
-        "created_at": "2025-01-26T12:19:58.000000Z",
-        "updated_at": "2025-01-26T12:19:58.000000Z"
-    },
-    "message": "Sukses menghapus data!"
+	"category_name":"Donation"
 }
 ```
-- Response 500 :
-```json
-{
-    "code": "500",
-    "data": null,
-    "message": "Gagal menghapus data"
-}
+## ❌ DELETE Method Example
+
+### Posts
+
+#### URL :
 ```
+http://localhost:8000/api/v1/post/{id}
+```
+### Category
+
+#### URL :
+```
+http://localhost:8000/api/v1/category/{id}
+```
+## 🖥 Entity Relational Diagram ( ERD )
+![ERD](https://drive.google.com/file/d/17qzItic7WqAmoo2uoVxpelAF-ufWDXZD/view?usp=sharing)
