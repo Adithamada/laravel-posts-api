@@ -27,9 +27,117 @@ class PostController extends Controller
             ]);
         } catch (Exception $e) {
             return response()->json([
-                "code" => "200",
+                "code" => "500",
                 "data" => null,
-                "message" => "Sukses mengambil data post"
+                "message" => "Gagal mengambil data post"
+            ]) . $e->getMessage();
+        }
+    }
+    public function store(Request $request)
+    {
+        try {
+            $request->validate([
+                "title" => "required",
+                "description" => "required",
+                "category_id" => "required",
+                "author" => "required",
+            ]);
+
+            $post = Post::create($request->only(['title', 'description', 'category_id', 'author']));
+
+            return response()->json([
+                "code" => "200",
+                "data" => $post,
+                "message" => "Sukses menambah data!"
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                "code" => "500",
+                "data" => null,
+                "message" => "Gagal menambah data"
+            ]) . $e->getMessage();
+        }
+    }
+
+    public function show(String $id)
+    {
+        try {
+            $post = Post::findOrFail($id);
+            if (!$post) {
+                return response()->json([
+                    "code" => "500",
+                    "data" => null,
+                    "message" => "Post tidak ada!"
+                ]);
+            }
+            return response()->json([
+                "code" => "200",
+                "data" => $post,
+                "message" => "Sukses mengambil data!"
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                "code" => "500",
+                "data" => null,
+                "message" => "Gagal mengambil data"
+            ]) . $e->getMessage();
+        }
+    }
+    public function update(Request $request, String $id)
+    {
+        try {
+            $post = Post::findOrFail($id);
+            if (!$post) {
+                return response()->json([
+                    "code" => "500",
+                    "data" => null,
+                    "message" => "Post tidak ada!"
+                ]);
+            }
+            $request->validate([
+                "title" => "required",
+                "description" => "required",
+                "category_id" => "required",
+                "author" => "required",
+            ]);
+
+            $post->update($request->only(['title', 'description', 'category_id', 'author']));
+
+            return response()->json([
+                "code" => "200",
+                "data" => $post,
+                "message" => "Sukses update data!"
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                "code" => "500",
+                "data" => null,
+                "message" => "Gagal update data"
+            ]) . $e->getMessage();
+        }
+    }
+    public function destroy(String $id)
+    {
+        try {
+            $post = Post::findOrFail($id);
+            if (!$post) {
+                return response()->json([
+                    "code" => "500",
+                    "data" => null,
+                    "message" => "Post tidak ada!"
+                ]);
+            }
+            $post->delete();
+            return response()->json([
+                "code" => "200",
+                "data" => $post,
+                "message" => "Sukses menghapus data!"
+            ]);
+        } catch (Exception $e) {
+            return response()->json([
+                "code" => "500",
+                "data" => null,
+                "message" => "Gagal menghapus data"
             ]) . $e->getMessage();
         }
     }
