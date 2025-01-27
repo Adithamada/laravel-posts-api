@@ -15,6 +15,7 @@
 - title varchar : Post Name
 - description varchar : Post Description
 - category_id INT : Post Category ( Foreign Key )
+- author varchar : Post author
 
 ## 💿 Category Attributes
 - id INT : Unique identifier ( Primary Key )
